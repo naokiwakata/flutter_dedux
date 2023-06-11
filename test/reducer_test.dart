@@ -8,27 +8,27 @@ import 'package:redux/redux.dart';
 void main() {
   group('counter reducer test', () {
     test('counterReducerでincrementが行われるかのテスト', () {
-      final store = Store<AppState>(counterReducer,
-          initialState: const AppState(count: 0));
+      final store = Store<AppState>(appReducer,
+          initialState: const AppState(counterState: CounterState(count: 0)));
       store.dispatch(AppActions.increment);
-      expect(store.state.count, 1);
+      expect(store.state.counterState.count, 1);
     });
 
     test('counterReducerでdecrementが行われるかのテスト', () {
-      final store = Store<AppState>(counterReducer,
-          initialState: const AppState(count: 0));
+      final store = Store<AppState>(appReducer,
+          initialState: const AppState(counterState: CounterState(count: 0)));
       store.dispatch(AppActions.decrement);
-      expect(store.state.count, -1);
+      expect(store.state.counterState.count, -1);
     });
 
     test('100回incrementしてみるテスト', () {
-      final store = Store<AppState>(counterReducer,
-          initialState: const AppState(count: 0));
+      final store = Store<AppState>(appReducer,
+          initialState: const  AppState(counterState: CounterState(count: 0)));
 
       for(int i = 0; i < 100; i++) {
         store.dispatch(AppActions.increment);
       } 
-      expect(store.state.count, 100);
+      expect(store.state.counterState.count, 100);
     });
   });
 }

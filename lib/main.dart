@@ -10,7 +10,7 @@ void main() {
   /// StoreはStateの保持・変更・通知を行うもの
   /// 状態変更処理はReducerを用いて行う
   final store =
-      Store<AppState>(counterReducer, initialState: const AppState(count: 0));
+      Store<AppState>(appReducer, initialState: const AppState(counterState: CounterState(count: 0)));
 
   runApp(FlutterReduxApp(
     store: store,
@@ -40,7 +40,7 @@ class FlutterReduxApp extends StatelessWidget {
               children: [
                 /// StateをWidgetに反映させるためにStoreConnectorを用いる
                 StoreConnector<AppState, int>(
-                  converter: (store) => store.state.count,
+                  converter: (store) => store.state.counterState.count,
                   builder: (context, count) {
                     return Text(
                       '$count',

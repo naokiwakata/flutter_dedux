@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 /// アプリ全体の状態を1つのStateで表現する
 @immutable
 class AppState {
+  final CounterState counterState;
+
+  const AppState({required this.counterState});
+}
+
+/// カウンターの状態を表す
+class CounterState {
   final int count;
+  const CounterState({required this.count});
 
-  const AppState({required this.count});
-
-  AppState copyWith({int? count}) {
-    return AppState(count: count ?? this.count);
+    CounterState copyWith({int? count}) {
+    return CounterState(count: count ?? this.count);
   }
 }
