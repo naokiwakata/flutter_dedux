@@ -54,7 +54,7 @@ class FlutterReduxApp extends StatelessWidget {
                     StoreConnector<AppState, VoidCallback>(
                       converter: (store) {
                         /// StoreにActionを渡すことで状態の変更の行う
-                        return () => store.dispatch(AppActions.increment);
+                        return () => store.dispatch(CounterActions.increment);
                       },
                       builder: (context, callback) {
                         return ElevatedButton(
@@ -66,7 +66,7 @@ class FlutterReduxApp extends StatelessWidget {
                     StoreConnector<AppState, VoidCallback>(
                       converter: (store) {
                         /// StoreにActionを渡すことで状態の変更の行う
-                        return () => store.dispatch(AppActions.decrement);
+                        return () => store.dispatch(CounterActions.decrement);
                       },
                       builder: (context, callback) {
                         return ElevatedButton(

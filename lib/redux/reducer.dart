@@ -14,9 +14,9 @@ AppState appReducer(AppState state, dynamic action) {
 /// 副作用のない純粋な関数である必要がある
 CounterState counterReducer(CounterState state, dynamic action) {
   switch (action) {
-    case AppActions.increment:
+    case CounterActions.increment:
       return state.copyWith(count: state.count + 1);
-    case AppActions.decrement:
+    case CounterActions.decrement:
       return state.copyWith(count: state.count - 1);
   }
   return state;

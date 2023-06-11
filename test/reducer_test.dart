@@ -10,24 +10,24 @@ void main() {
     test('counterReducerでincrementが行われるかのテスト', () {
       final store = Store<AppState>(appReducer,
           initialState: const AppState(counterState: CounterState(count: 0)));
-      store.dispatch(AppActions.increment);
+      store.dispatch(CounterActions.increment);
       expect(store.state.counterState.count, 1);
     });
 
     test('counterReducerでdecrementが行われるかのテスト', () {
       final store = Store<AppState>(appReducer,
           initialState: const AppState(counterState: CounterState(count: 0)));
-      store.dispatch(AppActions.decrement);
+      store.dispatch(CounterActions.decrement);
       expect(store.state.counterState.count, -1);
     });
 
     test('100回incrementしてみるテスト', () {
       final store = Store<AppState>(appReducer,
-          initialState: const  AppState(counterState: CounterState(count: 0)));
+          initialState: const AppState(counterState: CounterState(count: 0)));
 
-      for(int i = 0; i < 100; i++) {
-        store.dispatch(AppActions.increment);
-      } 
+      for (int i = 0; i < 100; i++) {
+        store.dispatch(CounterActions.increment);
+      }
       expect(store.state.counterState.count, 100);
     });
   });
