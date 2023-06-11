@@ -9,8 +9,10 @@ import 'redux/state.dart';
 void main() {
   /// StoreはStateの保持・変更・通知を行うもの
   /// 状態変更処理はReducerを用いて行う
-  final store =
-      Store<AppState>(appReducer, initialState: const AppState(counterState: CounterState(count: 0)));
+  final store = Store<AppState>(
+    appReducer,
+    initialState: const AppState(counterState: CounterState(count: 0)),
+  );
 
   runApp(FlutterReduxApp(
     store: store,
