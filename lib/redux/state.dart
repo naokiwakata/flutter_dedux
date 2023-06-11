@@ -9,6 +9,7 @@ class AppState {
 }
 
 /// カウンターの状態を表す
+@immutable
 class CounterState {
   final int count;
   const CounterState({required this.count});
